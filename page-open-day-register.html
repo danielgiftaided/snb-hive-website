@@ -194,12 +194,11 @@
     submitBtn.textContent = "Registering…";
 
     try {
-      // 1. Save the registration
-      const insertRes = await fetch(`$https://godayayhzmvrtqedesyj.supabase.co/rest/v1/open_day_registrations`, {
+      const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/open_day_registrations`, {
         method: "POST",
         headers: {
-          "apikey": eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg,
-          "Authorization": `Bearer $eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg`,
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
           "Content-Type": "application/json",
           "Prefer": "return=minimal",
         },
@@ -210,13 +209,10 @@
       });
       if (!insertRes.ok) throw new Error("Could not save registration");
 
-      // 2. Confirmation email to the registrant (non-blocking-ish, but we
-      //    wait for it so we can show an honest error if email fails)
       await callEdgeFunction("send-email", {
         type: "open_day_confirm", first_name: firstName, last_name: lastName, email, phone,
       });
 
-      // 3. Notify admin — failure here shouldn't block the user's confirmation
       callEdgeFunction("send-email", {
         type: "open_day_admin", first_name: firstName, last_name: lastName, email, phone,
       }).catch(err => console.error("[Open Day] admin notify failed:", err));
@@ -234,6 +230,5 @@
     }
   });
 </script>
-
 </body>
 </html>
