@@ -195,11 +195,11 @@
 
     try {
       // 1. Save the registration
-      const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/open_day_registrations`, {
+      const insertRes = await fetch(`$https://godayayhzmvrtqedesyj.supabase.co/rest/v1/open_day_registrations`, {
         method: "POST",
         headers: {
-          "apikey": SUPABASE_ANON_KEY,
-          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "apikey": eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg,
+          "Authorization": `Bearer $eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg`,
           "Content-Type": "application/json",
           "Prefer": "return=minimal",
         },
