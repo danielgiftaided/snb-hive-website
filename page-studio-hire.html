@@ -92,6 +92,23 @@
     .gphoto.g1 { grid-row:auto; }
     .features { grid-template-columns:1fr; gap:28px; }
   }
+  .gphoto { cursor:pointer; }
+
+  /* ── Lightbox ── */
+  .lightbox-overlay { position:fixed; inset:0; z-index:60; background:rgba(15,13,10,0.92);
+    display:none; align-items:center; justify-content:center; padding:60px 20px; }
+  .lightbox-overlay.show { display:flex; }
+  .lightbox-overlay img { max-width:100%; max-height:100%; border-radius:6px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+  .lightbox-close { position:absolute; top:24px; right:32px; background:none; border:none;
+    color:#FBF6EA; font-size:32px; line-height:1; cursor:pointer; }
+  .lightbox-nav { position:absolute; top:50%; transform:translateY(-50%); background:none; border:none;
+    color:#FBF6EA; font-size:40px; line-height:1; cursor:pointer; padding:10px 16px; opacity:0.8; }
+  .lightbox-nav:hover { opacity:1; }
+  .lightbox-prev { left:12px; }
+  .lightbox-next { right:12px; }
+  .lightbox-caption { position:absolute; bottom:28px; left:0; right:0; text-align:center;
+    color:rgba(251,246,234,0.75); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; }
 </style>
 </head>
 <body>
@@ -128,12 +145,12 @@
 
 <!-- Gallery — real studio photos -->
 <div class="gallery">
-  <div class="gphoto g1"><span class="gcaption">6 Dispensary Lane</span></div>
-  <div class="gphoto g2"><span class="gcaption">røe</span></div>
-  <div class="gphoto g3"><span class="gcaption">The studio</span></div>
-  <div class="gphoto g4"><span class="gcaption">Entrance</span></div>
-  <div class="gphoto g5"><span class="gcaption">Equipment</span></div>
-  <div class="gphoto g6"><span class="gcaption">Details</span></div>
+  <div class="gphoto g1" data-full="roe-storefront.jpg" data-caption="6 Dispensary Lane"><span class="gcaption">6 Dispensary Lane</span></div>
+  <div class="gphoto g2" data-full="roe-wall-logo.jpg" data-caption="røe"><span class="gcaption">røe</span></div>
+  <div class="gphoto g3" data-full="roe-reformer-row.jpg" data-caption="The studio"><span class="gcaption">The studio</span></div>
+  <div class="gphoto g4" data-full="roe-entrance.jpg" data-caption="Entrance"><span class="gcaption">Entrance</span></div>
+  <div class="gphoto g5" data-full="roe-reformer-detail.jpg" data-caption="Equipment"><span class="gcaption">Equipment</span></div>
+  <div class="gphoto g6" data-full="roe-ball-ring.jpg" data-caption="Details"><span class="gcaption">Details</span></div>
 </div>
 
 <div class="features">
@@ -162,6 +179,45 @@
   <p>SNB Hive — Hackney, London</p>
   <p>Studio Hire</p>
 </footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</button>
+  <img id="lightboxImg" src="" alt=""/>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  (function() {
+    const photos = Array.from(document.querySelectorAll('.gphoto'));
+    const overlay = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    const caption = document.getElementById('lightboxCaption');
+    let current = 0;
+
+    function show(index) {
+      current = (index + photos.length) % photos.length;
+      const p = photos[current];
+      img.src = p.dataset.full;
+      img.alt = p.dataset.caption;
+      caption.textContent = p.dataset.caption;
+      overlay.classList.add('show');
+    }
+
+    photos.forEach((p, i) => p.addEventListener('click', () => show(i)));
+    document.getElementById('lightboxClose').addEventListener('click', () => overlay.classList.remove('show'));
+    document.getElementById('lightboxPrev').addEventListener('click', () => show(current - 1));
+    document.getElementById('lightboxNext').addEventListener('click', () => show(current + 1));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('show'); });
+    document.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('show')) return;
+      if (e.key === 'Escape') overlay.classList.remove('show');
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+  })();
+</script>
 
 </body>
 </html>
