@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SNB Hive — Instructor Open Day Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'Inter',sans-serif; color:#2B2E2C;
+    background-color:#EDE7DD;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 30% 0%, rgba(255,252,244,0.4), transparent 60%),
+      radial-gradient(ellipse 120% 90% at 80% 100%, rgba(60,64,58,0.05), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+  }
+  .serif { font-family:'Cormorant Garamond',serif; }
+
+  .page-header {
+    position:relative; overflow:hidden;
+    background-color:#CDC6B2;
+    background-image:
+      radial-gradient(ellipse 70% 60% at 22% 15%, rgba(139,132,116,0.55), transparent 60%),
+      radial-gradient(ellipse 60% 70% at 78% 30%, rgba(242,237,221,0.6), transparent 65%),
+      radial-gradient(ellipse 90% 70% at 50% 100%, rgba(120,114,98,0.4), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 50% 0%, rgba(168,160,141,0.3), transparent 60%),
+      linear-gradient(180deg, #D3CCB9 0%, #C7BFAA 45%, #DAD3C1 100%);
+  }
+  .page-header::before {
+    content:''; position:absolute; inset:0; opacity:0.34; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero-nav { position:relative; z-index:4; display:flex; align-items:center; justify-content:space-between; padding:34px 56px; }
+  .hero-nav .mark { display:flex; align-items:center; text-decoration:none; }
+  .hero-nav .mark img { height:44px; width:auto; display:block; }
+  .hero-nav ul { display:flex; gap:38px; list-style:none; }
+  .hero-nav a { color:#2B2E2C; text-decoration:none; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.75; }
+  .hero-nav .menu-icon { color:#2B2E2C; font-size:20px; opacity:0.85; }
+
+  .page-title { position:relative; z-index:3; padding:60px 56px 90px; text-align:center; }
+  .page-title .eyebrow { font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:#5A5548; margin-bottom:20px; }
+  .page-title h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:52px; line-height:1.15; color:#211F1A; }
+  .page-title h1 i { font-style:italic; color:#4B5D4E; }
+  .page-title p { margin-top:20px; font-size:15px; color:#4A473C; }
+
+  .form-wrap { max-width:520px; margin:70px auto 100px; padding:0 24px; }
+  .form-card { background:#fff; border-radius:14px; padding:40px 36px; box-shadow:0 14px 34px rgba(60,50,30,0.10); }
+  .form-card h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:8px; }
+  .form-card .sub { font-size:13px; color:#6E7A6F; margin-bottom:28px; }
+
+  .field { margin-bottom:18px; }
+  .field label { display:block; font-size:12px; font-weight:500; color:#4A473C; margin-bottom:6px; }
+  .field label .req { color:#B3261E; margin-left:2px; }
+  .field input { width:100%; border:1px solid #DCD5C6; border-radius:8px; padding:11px 14px;
+    font-family:'Inter',sans-serif; font-size:14px; color:#2B2E2C; background:#FBF9F4; }
+  .field input:focus { outline:none; border-color:#4B5D4E; }
+
+  .submit-btn { width:100%; margin-top:8px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:#211A16; color:#FBF6EA; padding:14px; border:none; border-radius:100px;
+    font-family:'Inter',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.02em; cursor:pointer; }
+  .submit-btn:disabled { opacity:0.6; cursor:not-allowed; }
+
+  .error-msg { background:#FDF2F2; border-left:3px solid #C0392B; color:#8B2020; font-size:13px;
+    padding:10px 14px; border-radius:6px; margin-bottom:16px; display:none; }
+  .error-msg.show { display:block; }
+
+  /* Confirmation state */
+  .confirm-state { display:none; text-align:center; }
+  .confirm-state.show { display:block; }
+  .confirm-state .icon { width:56px; height:56px; border-radius:50%; background:#E9F1EC; color:#4B5D4E;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:26px; }
+  .confirm-state h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:26px; margin-bottom:10px; }
+  .confirm-state p { font-size:14px; color:#5A5744; line-height:1.6; }
+
+  footer { padding:48px 72px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(43,46,44,0.14); }
+  footer p { font-size:12px; color:#6E7A6F; letter-spacing:0.05em; }
+
+  @media (max-width: 700px) {
+    .page-title h1 { font-size:36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <nav class="hero-nav">
+    <a class="mark" href="index.html"><img src="logo-nav.png" alt="SNB Hive"/></a>
+    <ul>
+      <li><a href="#">Classes</a></li>
+      <li><a href="page-retreats.html">Retreats</a></li>
+      <li><a href="page-studio-hire.html">Studio hire</a></li>
+    </ul>
+    <span class="menu-icon">&#9776;</span>
+  </nav>
+
+  <div class="page-title">
+    <div class="eyebrow">Instructor Open Day</div>
+    <h1>Come see the studio<br/><i>15th – 16th August 2026</i></h1>
+    <p>6 Dispensary Lane, London E8 1FT</p>
+  </div>
+</header>
+
+<div class="form-wrap">
+  <div class="form-card">
+
+    <div id="formState">
+      <h2>Register your interest</h2>
+      <p class="sub">Let us know you're coming — it only takes a moment.</p>
+
+      <div class="error-msg" id="errorMsg"></div>
+
+      <form id="regForm">
+        <div class="field">
+          <label>First name <span class="req">*</span></label>
+          <input type="text" id="firstName" required autocomplete="given-name"/>
+        </div>
+        <div class="field">
+          <label>Last name <span class="req">*</span></label>
+          <input type="text" id="lastName" required autocomplete="family-name"/>
+        </div>
+        <div class="field">
+          <label>Email address <span class="req">*</span></label>
+          <input type="email" id="email" required autocomplete="email"/>
+        </div>
+        <div class="field">
+          <label>Phone number</label>
+          <input type="tel" id="phone" autocomplete="tel"/>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Register my interest</button>
+      </form>
+    </div>
+
+    <div class="confirm-state" id="confirmState">
+      <div class="icon">&#10003;</div>
+      <h2>You're registered!</h2>
+      <p>Thanks, <span id="confirmName"></span> — we've sent a confirmation to your email with all the
+      details and a calendar invite. We can't wait to see you on the day.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>SNB Hive — Hackney, London</p>
+  <p>Instructor Open Day</p>
+</footer>
+
+<script>
+  // ⚠️ REQUIRED: same Supabase project already used by your booking app.
+  // Fill these in with your real project URL and anon key before this
+  // goes live (Project Settings → API in your Supabase dashboard).
+  const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  const SUPABASE_ANON_KEY = "YOUR_ANON_KEY_HERE";
+
+  const form = document.getElementById('regForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const errorMsg = document.getElementById('errorMsg');
+
+  function uid() {
+    return (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
+  }
+
+  async function callEdgeFunction(name, data) {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/${name}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${SUPABASE_ANON_KEY}` },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error(`${name} returned ${res.status}`);
+    return res.json();
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg.classList.remove('show');
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const email     = document.getElementById('email').value.trim();
+    const phone     = document.getElementById('phone').value.trim();
+
+    if (!firstName || !lastName || !email) {
+      errorMsg.textContent = "Please fill in your first name, last name, and email address.";
+      errorMsg.classList.add('show');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Registering…";
+
+    try {
+      // 1. Save the registration
+      const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/open_day_registrations`, {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal",
+        },
+        body: JSON.stringify({
+          id: uid(), first_name: firstName, last_name: lastName,
+          email: email, phone: phone || null,
+        }),
+      });
+      if (!insertRes.ok) throw new Error("Could not save registration");
+
+      // 2. Confirmation email to the registrant (non-blocking-ish, but we
+      //    wait for it so we can show an honest error if email fails)
+      await callEdgeFunction("send-email", {
+        type: "open_day_confirm", first_name: firstName, last_name: lastName, email, phone,
+      });
+
+      // 3. Notify admin — failure here shouldn't block the user's confirmation
+      callEdgeFunction("send-email", {
+        type: "open_day_admin", first_name: firstName, last_name: lastName, email, phone,
+      }).catch(err => console.error("[Open Day] admin notify failed:", err));
+
+      document.getElementById('confirmName').textContent = firstName;
+      document.getElementById('formState').style.display = 'none';
+      document.getElementById('confirmState').classList.add('show');
+
+    } catch (err) {
+      console.error(err);
+      errorMsg.textContent = "Something went wrong — please try again, or email shams@snbhive.com directly.";
+      errorMsg.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Register my interest";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SNB Hive — Studio Hire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'Inter',sans-serif; color:#2B2E2C;
+    background-color:#EDE7DD;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 30% 0%, rgba(255,252,244,0.4), transparent 60%),
+      radial-gradient(ellipse 120% 90% at 80% 100%, rgba(60,64,58,0.05), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+  }
+  .serif { font-family:'Cormorant Garamond',serif; }
+
+  .page-header {
+    position:relative; overflow:hidden;
+    background-color:#CDC6B2;
+    background-image:
+      radial-gradient(ellipse 70% 60% at 22% 15%, rgba(139,132,116,0.55), transparent 60%),
+      radial-gradient(ellipse 60% 70% at 78% 30%, rgba(242,237,221,0.6), transparent 65%),
+      radial-gradient(ellipse 90% 70% at 50% 100%, rgba(120,114,98,0.4), transparent 70%),
+      radial-gradient(ellipse 100% 60% at 50% 0%, rgba(168,160,141,0.3), transparent 60%),
+      linear-gradient(180deg, #D3CCB9 0%, #C7BFAA 45%, #DAD3C1 100%);
+  }
+  .page-header::before {
+    content:''; position:absolute; inset:0; opacity:0.34; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero-nav { position:relative; z-index:4; display:flex; align-items:center; justify-content:space-between; padding:34px 56px; }
+  .hero-nav .mark { display:flex; align-items:center; text-decoration:none; }
+  .hero-nav .mark img { height:44px; width:auto; display:block; }
+  .hero-nav ul { display:flex; gap:38px; list-style:none; }
+  .hero-nav a { color:#2B2E2C; text-decoration:none; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.75; }
+  .hero-nav a.active { opacity:1; border-bottom:1px solid #4B5D4E; padding-bottom:3px; }
+  .hero-nav .menu-icon { color:#2B2E2C; font-size:20px; opacity:0.85; }
+
+  .page-title { position:relative; z-index:3; padding:60px 56px 90px; text-align:center; }
+  .page-title .eyebrow { font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:#5A5548; margin-bottom:20px; }
+  .page-title h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:58px; line-height:1.1; color:#211F1A; }
+  .page-title h1 i { font-style:italic; color:#4B5D4E; }
+
+  .intro-wrap { max-width:720px; margin:80px auto; padding:0 56px; text-align:center; }
+  .intro-wrap p { font-size:16px; line-height:1.75; color:#4A473C; margin-top:22px; }
+  .intro-wrap p:first-of-type { margin-top:0; }
+
+  .gallery { max-width:1100px; margin:0 auto 90px; padding:0 56px;
+    display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:repeat(3, 190px); gap:20px; }
+  .gphoto { position:relative; border-radius:6px; overflow:hidden; box-shadow:0 10px 28px rgba(60,50,30,0.12);
+    background-size:cover; background-position:center; }
+  .gphoto::after {
+    content:''; position:absolute; inset:0; opacity:0.14; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .gphoto.g1 { grid-row:1 / 4; background-image:url('studio-reformers-wide.jpg'); background-position:center 30%; }
+  .gphoto.g2 { background-image:url('studio-reformers-alt.jpg'); background-position:center 25%; }
+  .gphoto.g3 { background-image:url('studio-mats-detail.jpg'); background-position:center 20%; }
+  .gphoto.g4 { background-image:url('studio-corner-styling.jpg'); background-position:center; }
+  .gphoto .gcaption { position:absolute; bottom:14px; left:16px; z-index:2;
+    color:rgba(251,246,234,0.85); font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+    text-shadow:0 1px 6px rgba(0,0,0,0.4); }
+
+  .features { max-width:900px; margin:0 auto 90px; padding:0 56px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:36px; text-align:center; }
+  .feature .flabel { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:#4B5D4E; }
+  .feature p { font-size:13px; color:#5A5744; margin-top:8px; line-height:1.6; }
+
+  .cta-band { text-align:center; padding:20px 56px 100px; }
+  .cta-band .hero-cta { display:inline-flex; align-items:center; gap:10px; background:#211A16; color:#FBF6EA;
+    padding:16px 36px; border-radius:100px; font-size:13px; letter-spacing:0.03em; text-decoration:none; }
+  .cta-band p { margin-top:18px; font-size:13px; color:#6E7A6F; }
+
+  .divider { height:1px; background:rgba(43,46,44,0.16); margin:0 72px; }
+
+  footer { padding:48px 72px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(43,46,44,0.14); }
+  footer p { font-size:12px; color:#6E7A6F; letter-spacing:0.05em; }
+
+  @media (max-width: 800px) {
+    .page-title h1 { font-size:40px; }
+    .gallery { grid-template-columns:1fr; grid-template-rows:none; }
+    .gphoto { height:280px; }
+    .gphoto.g1 { grid-row:auto; }
+    .features { grid-template-columns:1fr; gap:28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <nav class="hero-nav">
+    <a class="mark" href="index.html"><img src="logo-nav.png" alt="SNB Hive"/></a>
+    <ul>
+      <li><a href="#">Classes</a></li>
+      <li><a href="page-retreats.html">Retreats</a></li>
+      <li><a href="page-studio-hire.html" class="active">Studio hire</a></li>
+    </ul>
+    <span class="menu-icon">&#9776;</span>
+  </nav>
+
+  <div class="page-title">
+    <div class="eyebrow">6 Dispensary Lane, London E8 1FT</div>
+    <h1>Host your next event in our<br/><i>boutique women-only studio</i></h1>
+  </div>
+</header>
+
+<div class="intro-wrap">
+  <p>Nestled in the heart of Hackney, our beautifully designed women-only wellness studio provides
+  an elegant and versatile space for inspiring experiences. Featuring a bright, spacious studio,
+  private changing facilities, a bathroom and a peaceful garden, it's the perfect setting for
+  events that bring women together.</p>
+  <p>Ideal for yoga and fitness classes, coaching sessions, networking events, wellbeing workshops,
+  creative experiences, photoshoots and community gatherings, the studio offers a warm,
+  professional and welcoming atmosphere where women can connect, learn and thrive.</p>
+  <p>Whether you're a wellness practitioner, coach, therapist, creative or business owner, our space
+  is designed to help you deliver exceptional experiences in a setting that reflects the quality
+  of your brand. Let us provide the space while you focus on creating something unforgettable.</p>
+</div>
+
+<!-- Gallery — real studio photos -->
+<div class="gallery">
+  <div class="gphoto g1"><span class="gcaption">The studio</span></div>
+  <div class="gphoto g2"><span class="gcaption">Reformer studio</span></div>
+  <div class="gphoto g3"><span class="gcaption">Equipment</span></div>
+  <div class="gphoto g4"><span class="gcaption">Details</span></div>
+</div>
+
+<div class="features">
+  <div class="feature">
+    <div class="flabel">Bright &amp; spacious</div>
+    <p>A versatile main studio room with natural light throughout the day.</p>
+  </div>
+  <div class="feature">
+    <div class="flabel">Fully equipped</div>
+    <p>Private changing facilities, a bathroom, and everything you need to run your session.</p>
+  </div>
+  <div class="feature">
+    <div class="flabel">A peaceful garden</div>
+    <p>Outdoor space to extend your event or simply let people breathe between sessions.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="cta-band">
+  <a class="hero-cta" href="#">Enquire about studio hire <span>&rarr;</span></a>
+  <p>We'll be in touch to discuss availability and next steps.</p>
+</div>
+
+<footer>
+  <p>SNB Hive — Hackney, London</p>
+  <p>Studio Hire</p>
+</footer>
+
+</body>
+</html>
