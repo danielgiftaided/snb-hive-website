@@ -52,18 +52,20 @@
   .intro-wrap p { font-size:16px; line-height:1.75; color:#4A473C; margin-top:22px; }
   .intro-wrap p:first-of-type { margin-top:0; }
 
-  .gallery { max-width:1100px; margin:0 auto 90px; padding:0 56px;
-    display:grid; grid-template-columns:1.3fr 1fr; grid-template-rows:repeat(3, 190px); gap:20px; }
+  .gallery { max-width:1150px; margin:0 auto 90px; padding:0 56px;
+    display:grid; grid-template-columns:repeat(3, 1fr); grid-template-rows:repeat(2, 300px); gap:20px; }
   .gphoto { position:relative; border-radius:6px; overflow:hidden; box-shadow:0 10px 28px rgba(60,50,30,0.12);
     background-size:cover; background-position:center; }
   .gphoto::after {
     content:''; position:absolute; inset:0; opacity:0.14; mix-blend-mode:overlay;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  .gphoto.g1 { grid-row:1 / 4; background-image:url('studio-reformers-wide.jpg'); background-position:center 30%; }
-  .gphoto.g2 { background-image:url('studio-reformers-alt.jpg'); background-position:center 25%; }
-  .gphoto.g3 { background-image:url('studio-mats-detail.jpg'); background-position:center 20%; }
-  .gphoto.g4 { background-image:url('studio-corner-styling.jpg'); background-position:center; }
+  .gphoto.g1 { background-image:url('roe-storefront.jpg'); background-position:center 20%; }
+  .gphoto.g2 { background-image:url('roe-wall-logo.jpg'); background-position:center 35%; }
+  .gphoto.g3 { background-image:url('roe-reformer-row.jpg'); background-position:center 40%; }
+  .gphoto.g4 { background-image:url('roe-entrance.jpg'); background-position:center 22%; }
+  .gphoto.g5 { background-image:url('roe-reformer-detail.jpg'); background-position:center 55%; }
+  .gphoto.g6 { background-image:url('roe-ball-ring.jpg'); background-position:center 45%; }
   .gphoto .gcaption { position:absolute; bottom:14px; left:16px; z-index:2;
     color:rgba(251,246,234,0.85); font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
     text-shadow:0 1px 6px rgba(0,0,0,0.4); }
@@ -126,10 +128,12 @@
 
 <!-- Gallery — real studio photos -->
 <div class="gallery">
-  <div class="gphoto g1"><span class="gcaption">The studio</span></div>
-  <div class="gphoto g2"><span class="gcaption">Reformer studio</span></div>
-  <div class="gphoto g3"><span class="gcaption">Equipment</span></div>
-  <div class="gphoto g4"><span class="gcaption">Details</span></div>
+  <div class="gphoto g1"><span class="gcaption">6 Dispensary Lane</span></div>
+  <div class="gphoto g2"><span class="gcaption">røe</span></div>
+  <div class="gphoto g3"><span class="gcaption">The studio</span></div>
+  <div class="gphoto g4"><span class="gcaption">Entrance</span></div>
+  <div class="gphoto g5"><span class="gcaption">Equipment</span></div>
+  <div class="gphoto g6"><span class="gcaption">Details</span></div>
 </div>
 
 <div class="features">
