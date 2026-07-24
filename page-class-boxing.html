@@ -82,8 +82,23 @@
   .closing { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; color:#4B5D4E;
     text-align:center; margin-top:48px; line-height:1.6; }
 
-  footer { padding:48px 72px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(43,46,44,0.14); }
-  footer p { font-size:12px; color:#6E7A6F; letter-spacing:0.05em; }
+  .site-footer { border-top:1px solid rgba(43,46,44,0.14); }
+  .footer-main { padding:56px 72px 36px; display:flex; justify-content:space-between;
+    align-items:flex-start; gap:40px; flex-wrap:wrap; }
+  .footer-brand img { height:36px; width:auto; display:block; margin-bottom:14px; }
+  .footer-brand p { font-size:12.5px; color:#6E7A6F; line-height:1.7; }
+  .footer-social { display:flex; gap:14px; align-items:center; }
+  .footer-social a { display:flex; align-items:center; justify-content:center; width:36px; height:36px;
+    border-radius:50%; background:#F3EFE4; color:#2B2E2C; transition:background 0.2s ease, color 0.2s ease; }
+  .footer-social a:hover { background:#4B5D4E; color:#fff; }
+  .footer-social svg { width:16px; height:16px; }
+  .footer-bottom { padding:20px 72px 32px; border-top:1px solid rgba(43,46,44,0.08);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .footer-bottom p { font-size:11.5px; color:#8A8677; letter-spacing:0.02em; }
+
+  @media (max-width: 700px) {
+    .footer-main, .footer-bottom { padding-left:24px; padding-right:24px; }
+  }
 
   @media (max-width: 700px) {
     .page-title h1 { font-size:38px; }
@@ -160,9 +175,22 @@
   <p class="closing">Suitable for beginners and all fitness levels.</p>
 </div>
 
-<footer>
-  <p>SNB Hive — Hackney, London</p>
-  <p>Boxing</p>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="logo-nav.png" alt="SNB Hive"/>
+      <p>Women's Fitness and Wellness Classes &amp; Retreats<br/>6 Dispensary Lane, London E8 1FT</p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/snbhive?igsh=ODBrM2l6dDdyZnp0&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 SNB Hive Ltd. All rights reserved.</p>
+    <p>SNB Hive Ltd. Registered in England &amp; Wales, Company No. 16533320</p>
+  </div>
 </footer>
 
 </body>
