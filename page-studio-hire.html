@@ -164,10 +164,16 @@
     .hero-nav ul li { width:100%; }
     .hero-nav ul a { display:block; padding:12px 0; font-size:13px; opacity:0.85; }
     .hero-nav .nav-cta { display:inline-flex; margin-top:14px; }
-    .nav-dropdown .dropdown-menu { position:static; left:auto; transform:none; box-shadow:none;
-      opacity:1; visibility:visible; background:transparent; border-radius:0; width:100%; min-width:0;
-      max-height:0; overflow:hidden; padding:0; margin:0; transition:max-height 0.25s ease; }
-    .nav-dropdown.mobile-open .dropdown-menu { max-height:300px; padding:4px 0 6px 14px; margin-top:2px; }
+    .nav-dropdown .dropdown-menu {
+      position:static !important; left:auto !important; top:auto !important; transform:none !important;
+      box-shadow:none !important; background:transparent !important; border-radius:0 !important;
+      width:100% !important; min-width:0 !important; margin:0 !important; padding:0 !important;
+      opacity:1 !important; visibility:visible !important;
+      max-height:0; overflow:hidden; transition:max-height 0.25s ease;
+    }
+    .nav-dropdown.mobile-open .dropdown-menu {
+      max-height:300px !important; padding:4px 0 6px 14px !important; margin-top:2px !important;
+    }
     .nav-dropdown .caret { transition:transform 0.2s ease; }
     .nav-dropdown.mobile-open .caret { transform:rotate(180deg); }
   }
@@ -237,7 +243,7 @@
 <div class="features">
   <div class="feature">
     <div class="flabel">Bright &amp; spacious</div>
-    <p>A versatile main studio room with natural light throughout the day.</p>
+    <p>A versatile and spacious main studio room, thoughtfully lit throughout the day.</p>
   </div>
   <div class="feature">
     <div class="flabel">Fully equipped</div>
