@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SNB Hive — Instructor Open Day Registration</title>
+<title>SNB Hive — Studio Open Day Registration</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -99,12 +99,14 @@
     padding:11px 24px; text-align:center; font-size:13px; }
   .openday-banner strong { font-weight:600; }
   .openday-banner a { color:#FBF6EA; text-decoration:underline; text-underline-offset:3px; margin-left:8px; }
+  .nav-cta { background:#211A16 !important; color:#FBF6EA !important; padding:9px 22px;
+    border-radius:100px; opacity:1 !important; letter-spacing:0.03em !important; }
 </style>
 </head>
 <body>
 
 <div class="openday-banner">
-  <strong>Instructor Open Day</strong> — 15th &amp; 16th August 2026 at 6 Dispensary Lane, London E8 1FT.
+  <strong>Studio Open Day</strong> — 15th &amp; 16th August 2026 at 6 Dispensary Lane, London E8 1FT.
   <a href="page-open-day-register.html">Register your interest &rarr;</a>
 </div>
 
@@ -124,11 +126,12 @@
       </li>
       <li><a href="page-retreats.html">Retreats</a></li>
       <li><a href="page-studio-hire.html">Studio hire</a></li>
+      <li><a href="https://app.snbhive.com" class="nav-cta">Book Now</a></li>
     </ul>
   </nav>
 
   <div class="page-title">
-    <div class="eyebrow">Instructor Open Day</div>
+    <div class="eyebrow">Studio Open Day</div>
     <h1>Come see the studio<br/><i>15th – 16th August 2026</i></h1>
     <p>6 Dispensary Lane, London E8 1FT</p>
   </div>
@@ -176,15 +179,15 @@
 
 <footer>
   <p>SNB Hive — Hackney, London</p>
-  <p>Instructor Open Day</p>
+  <p>Studio Open Day</p>
 </footer>
 
 <script>
   // ⚠️ REQUIRED: same Supabase project already used by your booking app.
   // Fill these in with your real project URL and anon key before this
   // goes live (Project Settings → API in your Supabase dashboard).
-  const SUPABASE_URL = "https://godayayhzmvrtqedesyj.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg";
+  const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  const SUPABASE_ANON_KEY = "YOUR_ANON_KEY_HERE";
 
   const form = document.getElementById('regForm');
   const submitBtn = document.getElementById('submitBtn');
