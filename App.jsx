@@ -28,7 +28,7 @@ const BRAND = {
 const OPEN_DAY = {
   enabled: true,
   title: "Studio Open Day",
-  dates: "15th–16th August 2026",
+  dates: "15th–16th August 2026, 13:00–16:00",
   blurb: "Thinking about hiring our studio? Come see the space for yourself — we're opening our doors to instructors and practitioners for a two-day open day.",
 };
 
