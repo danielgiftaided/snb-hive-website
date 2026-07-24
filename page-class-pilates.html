@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SNB Hive — Retreats</title>
+<title>SNB Hive — Pilates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -41,33 +41,6 @@
   .hero-nav ul { display:flex; gap:38px; list-style:none; }
   .hero-nav a { color:#2B2E2C; text-decoration:none; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.75; }
   .hero-nav a.active { opacity:1; border-bottom:1px solid #4B5D4E; padding-bottom:3px; }
-  .hero-nav .menu-icon { color:#2B2E2C; font-size:20px; opacity:0.85; }
-
-  .page-title { position:relative; z-index:3; padding:60px 56px 90px; text-align:center; }
-  .page-title .eyebrow { font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:#5A5548; margin-bottom:20px; }
-  .page-title h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:56px; line-height:1.15; color:#211F1A; }
-  .page-title h1 i { font-style:italic; color:#4B5D4E; }
-
-  .intro-wrap { max-width:680px; margin:80px auto 70px; padding:0 56px; text-align:center; }
-  .intro-wrap p { font-size:16px; line-height:1.75; color:#4A473C; }
-
-  .poster-section { max-width:1000px; margin:0 auto 60px; padding:0 56px; }
-  .poster-section img { width:100%; height:auto; display:block; border-radius:6px; box-shadow:0 14px 34px rgba(60,50,30,0.14); }
-  .poster-caption { text-align:center; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8A8677; margin:16px 0 60px; }
-
-  .divider { height:1px; background:rgba(43,46,44,0.16); margin:0 72px; }
-
-  .cta-band { text-align:center; padding:70px 56px 100px; }
-  .cta-band .hero-cta { display:inline-flex; align-items:center; gap:10px; background:#211A16; color:#FBF6EA;
-    padding:16px 36px; border-radius:100px; font-size:13px; letter-spacing:0.03em; text-decoration:none; }
-  .cta-band p { margin-top:18px; font-size:13px; color:#6E7A6F; }
-
-  footer { padding:48px 72px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(43,46,44,0.14); }
-  footer p { font-size:12px; color:#6E7A6F; letter-spacing:0.05em; }
-
-  @media (max-width: 800px) {
-    .page-title h1 { font-size:38px; }
-  }
 
   .nav-dropdown { position:relative; }
   .nav-dropdown > a { cursor:pointer; }
@@ -80,6 +53,42 @@
   .dropdown-menu a { display:block; padding:9px 14px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
     color:#2B2E2C; opacity:1; border-radius:6px; }
   .dropdown-menu a:hover { background:#F3EFE4; color:#4B5D4E; }
+  .dropdown-menu a.active { color:#4B5D4E; opacity:1; border-bottom:none; }
+
+  .page-title { position:relative; z-index:3; padding:60px 56px 90px; text-align:center; }
+  .page-title .eyebrow { font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:#5A5548; margin-bottom:20px; }
+  .page-title h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:56px; line-height:1.15; color:#211F1A; }
+  .page-title h1 i { font-style:italic; color:#4B5D4E; }
+
+  .content-wrap { max-width:900px; margin:70px auto; padding:0 56px; }
+  .content-photo { position:relative; border-radius:8px; overflow:hidden; box-shadow:0 16px 40px rgba(60,50,30,0.14);
+    margin-bottom:56px; aspect-ratio:16/10; }
+  .content-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .content-photo::after {
+    content:''; position:absolute; inset:0; opacity:0.12; mix-blend-mode:overlay; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .content-body p { font-size:15px; line-height:1.8; color:#4A473C; margin-bottom:20px; }
+  .content-body .note { font-size:14px; line-height:1.75; color:#5A5744; background:#F3EFE4; border-left:3px solid #4B5D4E;
+    padding:16px 20px; border-radius:4px; margin:28px 0; }
+
+  .benefits { margin-top:20px; }
+  .benefits h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:20px; }
+  .benefits ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; }
+  .benefits li { font-size:14px; color:#4A473C; padding-left:20px; position:relative; line-height:1.6; }
+  .benefits li::before { content:'+'; position:absolute; left:0; color:#4B5D4E; font-weight:600; }
+
+  .closing { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; color:#4B5D4E;
+    text-align:center; margin-top:48px; line-height:1.6; }
+
+  footer { padding:48px 72px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(43,46,44,0.14); }
+  footer p { font-size:12px; color:#6E7A6F; letter-spacing:0.05em; }
+
+  @media (max-width: 700px) {
+    .page-title h1 { font-size:38px; }
+    .benefits ul { grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
@@ -92,44 +101,39 @@
         <a>Classes <span class="caret">&#9662;</span></a>
         <div class="dropdown-menu">
           <a href="page-class-boxing.html">Boxing</a>
-          <a href="page-class-pilates.html">Pilates</a>
+          <a href="page-class-pilates.html" class="active">Pilates</a>
           <a href="page-class-somatic.html">Somatic</a>
           <a href="page-class-strength.html">Strength &amp; Conditioning</a>
           <a href="page-class-zumba.html">Zumba</a>
         </div>
       </li>
-      <li><a href="page-retreats.html" class="active">Retreats</a></li>
+      <li><a href="page-retreats.html">Retreats</a></li>
       <li><a href="page-studio-hire.html">Studio hire</a></li>
     </ul>
-    <span class="menu-icon">&#9776;</span>
   </nav>
 
   <div class="page-title">
-    <div class="eyebrow">SNB Hive Wellness Series</div>
-    <h1>Exclusive retreats to<br/><i>pause, breathe, and reconnect</i></h1>
+    <div class="eyebrow">SNB Hive Classes</div>
+    <h1>Women's<br/><i>Pilates</i></h1>
   </div>
 </header>
 
-<div class="intro-wrap">
-  <p>Introducing the SNB Hive Wellness Series – exclusive luxury retreats created for women who
-  deserve time to pause, breathe and reconnect. Expect beautiful venues, wellness experiences,
-  delicious food, meaningful conversations and a carefully curated itinerary designed to leave
-  you feeling refreshed, empowered and inspired. Because self-care isn't a luxury—it's essential.</p>
-</div>
+<div class="content-wrap">
+  <div class="content-photo">
+    <img src="class-pilates.jpg" alt="Pilates"/>
+  </div>
 
-<div class="poster-section">
-  <img src="retreat-poster-2-edited.jpg" alt="SNB Hive Wellness Series retreat — full details"/>
-</div>
-<p class="poster-caption">Women only luxury escape — August 2026</p>
+  <div class="content-body">
+    <p>PLACEHOLDER COPY — please send over your Pilates class description and I'll swap this out. No blurb for Pilates was included with the other four classes, so this paragraph is a placeholder standing in for real content, not final copy.</p>
+    <p>Pilates focuses on strength, core control and balance, using controlled, precise movements to build a stronger, more stable body from the inside out.</p>
+  </div>
 
-<div class="poster-section">
-  <img src="retreat-poster-1-edited.jpg" alt="SNB Hive Wellness Series retreat — a space to breathe"/>
+
 </div>
-<p class="poster-caption">A space to breathe. A time to unwind.</p>
 
 <footer>
   <p>SNB Hive — Hackney, London</p>
-  <p>Retreats</p>
+  <p>Pilates</p>
 </footer>
 
 </body>

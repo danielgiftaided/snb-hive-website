@@ -83,6 +83,18 @@
   @media (max-width: 700px) {
     .page-title h1 { font-size:36px; }
   }
+
+  .nav-dropdown { position:relative; }
+  .nav-dropdown > a { cursor:pointer; }
+  .nav-dropdown .caret { font-size:9px; margin-left:5px; opacity:0.7; }
+  .dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:14px;
+    background:#fff; border-radius:10px; box-shadow:0 14px 34px rgba(60,50,30,0.16);
+    min-width:200px; padding:8px; opacity:0; visibility:hidden; transform:translateX(-50%) translateY(-6px);
+    transition:opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index:20; }
+  .nav-dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+  .dropdown-menu a { display:block; padding:9px 14px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#2B2E2C; opacity:1; border-radius:6px; }
+  .dropdown-menu a:hover { background:#F3EFE4; color:#4B5D4E; }
 </style>
 </head>
 <body>
@@ -91,7 +103,16 @@
   <nav class="hero-nav">
     <a class="mark" href="index.html"><img src="logo-nav.png" alt="SNB Hive"/></a>
     <ul>
-      <li><a href="#">Classes</a></li>
+      <li class="nav-dropdown">
+        <a>Classes <span class="caret">&#9662;</span></a>
+        <div class="dropdown-menu">
+          <a href="page-class-boxing.html">Boxing</a>
+          <a href="page-class-pilates.html">Pilates</a>
+          <a href="page-class-somatic.html">Somatic</a>
+          <a href="page-class-strength.html">Strength &amp; Conditioning</a>
+          <a href="page-class-zumba.html">Zumba</a>
+        </div>
+      </li>
       <li><a href="page-retreats.html">Retreats</a></li>
       <li><a href="page-studio-hire.html">Studio hire</a></li>
     </ul>
