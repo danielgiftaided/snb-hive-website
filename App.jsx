@@ -26,7 +26,7 @@ const BRAND = {
 // existing Studio Hire enquiry form. Set ENABLED to false to turn off
 // both the popup and the banner once the event has passed.
 const OPEN_DAY = {
-  enabled: true,
+  enabled: false, // event has passed — flip back to true and update details for a future one
   title: "Studio Open Day",
   dates: "15th August 2026, 13:00–16:00",
   blurb: "Thinking about hiring our studio? Come see the space for yourself — we're opening our doors to instructors and practitioners for a two-day open day.",
