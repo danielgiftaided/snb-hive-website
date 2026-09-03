@@ -213,6 +213,26 @@
     .nav-dropdown .caret { transition:transform 0.2s ease; }
     .nav-dropdown.mobile-open .caret { transform:rotate(180deg); }
   }
+  /* ── Workshop popup ── */
+  .workshop-overlay { position:fixed; inset:0; z-index:50; background:rgba(20,18,14,0.55);
+    display:none; align-items:center; justify-content:center; padding:20px; }
+  .workshop-overlay.show { display:flex; }
+  .workshop-modal { background:#fff; border-radius:16px; max-width:420px; width:100%;
+    padding:36px 32px; text-align:center; position:relative; box-shadow:0 24px 60px rgba(0,0,0,0.25); }
+  .workshop-modal .close-btn { position:absolute; top:14px; right:16px; background:none; border:none;
+    font-size:18px; color:#8A8677; cursor:pointer; }
+  .workshop-modal .wk-icon { width:52px; height:52px; border-radius:50%; background:#F3EBE6; color:#B47D6D;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:22px; }
+  .workshop-modal h3 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; color:#2B2E2C; }
+  .workshop-modal .wk-tag { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#B47D6D;
+    margin-bottom:6px; }
+  .workshop-modal .dates { font-size:13px; font-weight:600; color:#4B5D4E; margin-top:6px; }
+  .workshop-modal p.body-copy { font-size:14px; color:#5A5744; line-height:1.6; margin:16px 0 24px; }
+  .workshop-modal .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; background:#211A16; color:#FBF6EA; padding:13px; border-radius:100px; text-decoration:none;
+    font-size:14px; font-weight:500; }
+  .workshop-modal .btn-later { display:block; margin-top:14px; font-size:12px; color:#8A8677;
+    text-decoration:underline; background:none; border:none; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -338,6 +358,36 @@
     </div>
   </div>
 </footer>
+
+<div class="workshop-overlay" id="workshopOverlay">
+  <div class="workshop-modal">
+    <button class="close-btn" id="workshopClose">&times;</button>
+    <div class="wk-icon">&#127912;</div>
+    <div class="wk-tag">Workshop</div>
+    <h3>Tote-ally Social</h3>
+    <div class="dates">Saturday 26th September · 14:00 – 16:00</div>
+    <p class="body-copy">Get creative and paint your own unique tote bag in a fun, relaxed women-only
+    setting. No experience needed — just come along, socialise, and take home something you've made.</p>
+    <a class="btn-primary" href="https://app.snbhive.com">Book your spot &rarr;</a>
+    <button class="btn-later" id="workshopLater">Maybe later</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var overlay = document.getElementById('workshopOverlay');
+    if (!sessionStorage.getItem('workshop_seen')) {
+      setTimeout(function() { overlay.classList.add('show'); }, 600);
+      sessionStorage.setItem('workshop_seen', '1');
+    }
+    document.getElementById('workshopClose').addEventListener('click', function() {
+      overlay.classList.remove('show');
+    });
+    document.getElementById('workshopLater').addEventListener('click', function() {
+      overlay.classList.remove('show');
+    });
+  })();
+</script>
 
 <script>
   (function() {
