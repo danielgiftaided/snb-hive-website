@@ -27,6 +27,21 @@
   }
   .serif { font-family:'Cormorant Garamond',serif; }
 
+  /* ── Box Fit taster session announcement ── */
+  .taster-banner {
+    position:relative; z-index:40; display:flex; align-items:center; justify-content:center;
+    gap:24px; padding:13px 24px; background:#4B5D4E; color:#FBF6EA; text-align:center;
+  }
+  .taster-banner p { font-size:13px; line-height:1.5; letter-spacing:0.02em; }
+  .taster-banner strong { font-weight:600; }
+  .taster-banner a {
+    flex-shrink:0; display:inline-flex; align-items:center; gap:7px; padding:9px 18px;
+    border:1px solid rgba(251,246,234,0.7); border-radius:100px; color:#FBF6EA;
+    font-size:12px; font-weight:500; letter-spacing:0.04em; text-decoration:none;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .taster-banner a:hover, .taster-banner a:focus-visible { background:#FBF6EA; color:#344339; }
+
   /* ── Textured stone hero — heavier, more granular grain than the rest
        of the page, so the top of the site reads as a distinct, tactile
        moment rather than a continuation of the body texture. ── */
@@ -213,29 +228,40 @@
     .nav-dropdown .caret { transition:transform 0.2s ease; }
     .nav-dropdown.mobile-open .caret { transform:rotate(180deg); }
   }
-  /* ── Workshop popup ── */
-  .workshop-overlay { position:fixed; inset:0; z-index:50; background:rgba(20,18,14,0.55);
+  /* ── Box Fit taster session popup ── */
+  .taster-overlay { position:fixed; inset:0; z-index:50; background:rgba(20,18,14,0.62);
     display:none; align-items:center; justify-content:center; padding:20px; }
-  .workshop-overlay.show { display:flex; }
-  .workshop-modal { background:#fff; border-radius:16px; max-width:420px; width:100%;
+  .taster-overlay.show { display:flex; }
+  .taster-modal { background:#fff; border-radius:16px; max-width:440px; width:100%;
     padding:36px 32px; text-align:center; position:relative; box-shadow:0 24px 60px rgba(0,0,0,0.25); }
-  .workshop-modal .close-btn { position:absolute; top:14px; right:16px; background:none; border:none;
-    font-size:18px; color:#8A8677; cursor:pointer; }
-  .workshop-modal .wk-icon { width:52px; height:52px; border-radius:50%; background:#F3EBE6; color:#B47D6D;
+  .taster-modal .close-btn { position:absolute; top:12px; right:14px; width:36px; height:36px;
+    background:none; border:none; font-size:24px; color:#716D61; cursor:pointer; border-radius:50%; }
+  .taster-modal .close-btn:hover, .taster-modal .close-btn:focus-visible { background:#F3EFE4; }
+  .taster-modal .taster-icon { width:52px; height:52px; border-radius:50%; background:#E7EEE8; color:#4B5D4E;
     display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:22px; }
-  .workshop-modal h3 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; color:#2B2E2C; }
-  .workshop-modal .wk-tag { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#B47D6D;
+  .taster-modal h3 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:30px; color:#2B2E2C; }
+  .taster-modal .taster-tag { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E7A6F;
     margin-bottom:6px; }
-  .workshop-modal .dates { font-size:13px; font-weight:600; color:#4B5D4E; margin-top:6px; }
-  .workshop-modal p.body-copy { font-size:14px; color:#5A5744; line-height:1.6; margin:16px 0 24px; }
-  .workshop-modal .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  .taster-modal .dates { font-size:14px; font-weight:600; color:#4B5D4E; margin-top:8px; }
+  .taster-modal p.body-copy { font-size:14px; color:#5A5744; line-height:1.65; margin:17px 0 24px; }
+  .taster-modal .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px;
     width:100%; background:#211A16; color:#FBF6EA; padding:13px; border-radius:100px; text-decoration:none;
     font-size:14px; font-weight:500; }
-  .workshop-modal .btn-later { display:block; margin-top:14px; font-size:12px; color:#8A8677;
+  .taster-modal .btn-later { display:block; margin:14px auto 0; font-size:12px; color:#716D61;
     text-decoration:underline; background:none; border:none; cursor:pointer; }
+  @media (max-width: 600px) {
+    .taster-banner { flex-direction:column; gap:9px; padding:12px 18px; }
+    .taster-banner a { padding:7px 16px; }
+    .taster-modal { padding:34px 24px 28px; }
+  }
 </style>
 </head>
 <body>
+
+<aside class="taster-banner" aria-label="Box Fit taster session">
+  <p><strong>Box Fit Taster Session:</strong> Join us on 01 Oct 2026, 13:00&ndash;14:00.</p>
+  <a href="https://app.snbhive.com">Book Box Fit <span aria-hidden="true">&rarr;</span></a>
+</aside>
 
 <section class="hero">
   <nav class="hero-nav">
@@ -359,32 +385,47 @@
   </div>
 </footer>
 
-<div class="workshop-overlay" id="workshopOverlay">
-  <div class="workshop-modal">
-    <button class="close-btn" id="workshopClose">&times;</button>
-    <div class="wk-icon">&#127912;</div>
-    <div class="wk-tag">Workshop</div>
-    <h3>Tote-ally Social</h3>
-    <div class="dates">Saturday 26th September · 14:00 – 16:00</div>
-    <p class="body-copy">Get creative and paint your own unique tote bag in a fun, relaxed women-only
-    setting. No experience needed — just come along, socialise, and take home something you've made.</p>
-    <a class="btn-primary" href="https://app.snbhive.com?tab=workshops">Book your spot &rarr;</a>
-    <button class="btn-later" id="workshopLater">Maybe later</button>
+<div class="taster-overlay" id="tasterOverlay" aria-hidden="true">
+  <div class="taster-modal" role="dialog" aria-modal="true" aria-labelledby="tasterTitle" aria-describedby="tasterDescription">
+    <button class="close-btn" id="tasterClose" type="button" aria-label="Close Box Fit taster session popup">&times;</button>
+    <div class="taster-icon" aria-hidden="true">&#10024;</div>
+    <div class="taster-tag">You're invited</div>
+    <h3 id="tasterTitle">Box Fit Taster Session</h3>
+    <div class="dates">01 Oct 2026</div>
+    <p class="body-copy" id="tasterDescription">Discover Box Fit at SNB Hive. Join our women-only taster session for an energising workout combining boxing technique, fitness, and fun.</p>
+    <a class="btn-primary" href="https://app.snbhive.com">Book your Box Fit taster <span aria-hidden="true">&rarr;</span></a>
+    <button class="btn-later" id="tasterLater" type="button">Maybe later</button>
   </div>
 </div>
 
 <script>
   (function() {
-    var overlay = document.getElementById('workshopOverlay');
-    if (!sessionStorage.getItem('workshop_seen')) {
-      setTimeout(function() { overlay.classList.add('show'); }, 600);
-      sessionStorage.setItem('workshop_seen', '1');
+    var overlay = document.getElementById('tasterOverlay');
+    var closeButton = document.getElementById('tasterClose');
+    var laterButton = document.getElementById('tasterLater');
+    var storageKey = 'box_fit_taster_2026_10_01_seen';
+
+    function closePopup() {
+      overlay.classList.remove('show');
+      overlay.setAttribute('aria-hidden', 'true');
     }
-    document.getElementById('workshopClose').addEventListener('click', function() {
-      overlay.classList.remove('show');
+
+    if (!sessionStorage.getItem(storageKey)) {
+      setTimeout(function() {
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden', 'false');
+        closeButton.focus();
+      }, 600);
+      sessionStorage.setItem(storageKey, '1');
+    }
+
+    closeButton.addEventListener('click', closePopup);
+    laterButton.addEventListener('click', closePopup);
+    overlay.addEventListener('click', function(event) {
+      if (event.target === overlay) closePopup();
     });
-    document.getElementById('workshopLater').addEventListener('click', function() {
-      overlay.classList.remove('show');
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && overlay.classList.contains('show')) closePopup();
     });
   })();
 </script>
