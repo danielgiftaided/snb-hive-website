@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SNB Hive — Contact Us</title>
-<meta property="og:title" content="SNB Hive — Contact Us" />
-<meta property="og:description" content="Get in touch with SNB Hive — visit us at røe Pilates, 6 Dispensary Lane, London E8 1FT." />
-<meta property="og:image" content="https://snbhive.com/roe-storefront.jpg" />
+<title>SNB Hive — Self Defence</title>
+<meta property="og:title" content="SNB Hive — Self Defence" />
+<meta property="og:description" content="A six-week women’s self-defence course led by kickboxing champion Sensei Maria Carrera, starting in October." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://snbhive.com/page-contact.html" />
+<meta property="og:url" content="https://snbhive.com/page-class-self-defence.html" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="description" content="Get in touch with SNB Hive — visit us at røe Pilates, 6 Dispensary Lane, London E8 1FT." />
+<meta name="description" content="A six-week women’s self-defence course led by kickboxing champion Sensei Maria Carrera, starting in October." />
+<link rel="stylesheet" href="self-defence-image.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -26,7 +26,6 @@
     background-attachment:fixed;
   }
   .serif { font-family:'Cormorant Garamond',serif; }
-
 
   .page-header {
     position:relative; overflow:hidden;
@@ -46,11 +45,9 @@
   .hero-nav { position:relative; z-index:30; display:flex; align-items:center; justify-content:space-between; padding:34px 56px; }
   .hero-nav .mark { display:flex; align-items:center; text-decoration:none; }
   .hero-nav .mark img { height:44px; width:auto; display:block; }
-  .hero-nav ul { display:flex; gap:38px; list-style:none; align-items:center; }
+  .hero-nav ul { display:flex; gap:38px; list-style:none; }
   .hero-nav a { color:#2B2E2C; text-decoration:none; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; opacity:0.75; }
   .hero-nav a.active { opacity:1; border-bottom:1px solid #4B5D4E; padding-bottom:3px; }
-  .nav-cta { background:#211A16 !important; color:#FBF6EA !important; padding:9px 22px;
-    border-radius:100px; opacity:1 !important; letter-spacing:0.03em !important; }
 
   .nav-dropdown { position:relative; }
   .nav-dropdown > a { cursor:pointer; }
@@ -63,55 +60,34 @@
   .dropdown-menu a { display:block; padding:9px 14px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
     color:#2B2E2C; opacity:1; border-radius:6px; }
   .dropdown-menu a:hover { background:#F3EFE4; color:#4B5D4E; }
+  .dropdown-menu a.active { color:#4B5D4E; opacity:1; border-bottom:none; }
 
   .page-title { position:relative; z-index:3; padding:60px 56px 90px; text-align:center; }
   .page-title .eyebrow { font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:#5A5548; margin-bottom:20px; }
   .page-title h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:56px; line-height:1.15; color:#211F1A; }
   .page-title h1 i { font-style:italic; color:#4B5D4E; }
 
-  .content-wrap { max-width:1050px; margin:0 auto; padding:70px 56px 100px; }
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; }
+  .content-wrap { max-width:900px; margin:70px auto; padding:0 56px; }
+  .content-photo { position:relative; border-radius:8px; overflow:hidden; box-shadow:0 16px 40px rgba(60,50,30,0.14);
+    margin-bottom:56px; aspect-ratio:16/10; }
+  .content-photo img, .content-photo .self-defence-image { width:100%; height:100%; object-fit:cover; display:block; }
+  .content-photo::after {
+    content:''; position:absolute; inset:0; opacity:0.12; mix-blend-mode:overlay; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
-  /* ── Left column: details + map ── */
-  .details h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:18px; }
-  .detail-row { display:flex; gap:14px; margin-bottom:18px; align-items:flex-start; }
-  .detail-row .dlabel { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8A8677;
-    min-width:70px; padding-top:2px; }
-  .detail-row .dvalue { font-size:15px; color:#2B2E2C; line-height:1.6; }
-  .detail-row a { color:#4B5D4E; text-decoration:underline; text-underline-offset:3px; }
+  .content-body p { font-size:15px; line-height:1.8; color:#4A473C; margin-bottom:20px; }
+  .content-body .note { font-size:14px; line-height:1.75; color:#5A5744; background:#F3EFE4; border-left:3px solid #4B5D4E;
+    padding:16px 20px; border-radius:4px; margin:28px 0; }
 
-  .map-wrap { margin-top:28px; border-radius:8px; overflow:hidden; box-shadow:0 14px 34px rgba(60,50,30,0.14);
-    aspect-ratio:4/3; }
-  .map-wrap iframe { width:100%; height:100%; border:0; display:block; }
+  .benefits { margin-top:20px; }
+  .benefits h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:20px; }
+  .benefits ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; }
+  .benefits li { font-size:14px; color:#4A473C; padding-left:20px; position:relative; line-height:1.6; }
+  .benefits li::before { content:'+'; position:absolute; left:0; color:#4B5D4E; font-weight:600; }
 
-  /* ── Right column: form ── */
-  .form-card { background:#fff; border-radius:14px; padding:36px 32px; box-shadow:0 14px 34px rgba(60,50,30,0.10); }
-  .form-card h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:8px; }
-  .form-card .sub { font-size:13px; color:#6E7A6F; margin-bottom:26px; }
-
-  .field { margin-bottom:16px; }
-  .field label { display:block; font-size:12px; font-weight:500; color:#4A473C; margin-bottom:6px; }
-  .field label .req { color:#B3261E; margin-left:2px; }
-  .field input, .field textarea { width:100%; border:1px solid #DCD5C6; border-radius:8px; padding:11px 14px;
-    font-family:'Inter',sans-serif; font-size:14px; color:#2B2E2C; background:#FBF9F4; resize:vertical; }
-  .field textarea { min-height:110px; }
-  .field input:focus, .field textarea:focus { outline:none; border-color:#4B5D4E; }
-
-  .submit-btn { width:100%; margin-top:6px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    background:#211A16; color:#FBF6EA; padding:14px; border:none; border-radius:100px;
-    font-family:'Inter',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.02em; cursor:pointer; }
-  .submit-btn:disabled { opacity:0.6; cursor:not-allowed; }
-
-  .error-msg { background:#FDF2F2; border-left:3px solid #C0392B; color:#8B2020; font-size:13px;
-    padding:10px 14px; border-radius:6px; margin-bottom:16px; display:none; }
-  .error-msg.show { display:block; }
-
-  .confirm-state { display:none; text-align:center; }
-  .confirm-state.show { display:block; }
-  .confirm-state .icon { width:52px; height:52px; border-radius:50%; background:#E9F1EC; color:#4B5D4E;
-    display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:24px; }
-  .confirm-state h2 { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:24px; margin-bottom:10px; }
-  .confirm-state p { font-size:14px; color:#5A5744; line-height:1.6; }
+  .closing { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; color:#4B5D4E;
+    text-align:center; margin-top:48px; line-height:1.6; }
 
   .site-footer { border-top:1px solid rgba(43,46,44,0.14); }
   .footer-main { padding:56px 72px 36px; display:flex; justify-content:space-between;
@@ -129,10 +105,12 @@
     .footer-main, .footer-bottom { padding-left:24px; padding-right:24px; }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     .page-title h1 { font-size:38px; }
-    .contact-grid { grid-template-columns:1fr; }
+    .benefits ul { grid-template-columns:1fr; }
   }
+  .nav-cta { background:#211A16 !important; color:#FBF6EA !important; padding:9px 22px;
+    border-radius:100px; opacity:1 !important; letter-spacing:0.03em !important; }
   /* ── Mobile nav ── */
   .mobile-toggle { display:none; background:none; border:none; cursor:pointer; padding:6px; z-index:30; position:relative; }
   .mobile-toggle span { display:block; width:22px; height:2px; background:#2B2E2C; margin:5px 0;
@@ -211,7 +189,7 @@
           <a href="page-class-boxing.html">Boxing</a>
           <a href="page-class-pilates.html">Reformer Pilates</a>
           <a href="page-class-somatic.html">Somatic</a>
-          <a href="page-class-self-defence.html">Self Defence</a>
+          <a href="page-class-self-defence.html" class="active">Self Defence</a>
           <a href="page-class-strength.html">Strength &amp; Conditioning</a>
           <a href="page-class-zumba.html">Zumba</a>
         </div>
@@ -219,7 +197,7 @@
       <li><a href="page-retreats.html">Retreats</a></li>
       <li><a href="page-studio-hire.html">Studio hire</a></li>
       <li><a href="page-about.html">About us</a></li>
-      <li><a href="page-contact.html" class="active">Contact us</a></li>
+      <li><a href="page-contact.html">Contact us</a></li>
       <li><a href="https://app.snbhive.com" class="nav-cta">Book Now</a></li>
     </ul>
     <div class="nav-overlay" id="navOverlay"></div>
@@ -228,76 +206,35 @@
 
 
   <div class="page-title">
-    <div class="eyebrow">Get in touch</div>
-    <h1>We'd love<br/><i>to hear from you</i></h1>
+    <div class="eyebrow">SNB Hive Classes</div>
+    <h1>Self Defence<br/><i>Confidence, strength &amp; awareness</i></h1>
   </div>
 </header>
 
 <div class="content-wrap">
-  <div class="contact-grid">
-
-    <div class="details">
-      <h2>Visit us</h2>
-      <div class="detail-row">
-        <div class="dlabel">Studio</div>
-        <div class="dvalue">røe Pilates &amp; Women's Wellness Hub</div>
-      </div>
-      <div class="detail-row">
-        <div class="dlabel">Address</div>
-        <div class="dvalue">6 Dispensary Lane<br/>London E8 1FT</div>
-      </div>
-      <div class="detail-row">
-        <div class="dlabel">Email</div>
-        <div class="dvalue"><a href="mailto:shams@snbhive.com">shams@snbhive.com</a></div>
-      </div>
-
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.com/maps?q=r%C3%B8e+Pilates,6+Dispensary+Lane,London+E8+1FT&output=embed"
-          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Map showing røe Pilates, 6 Dispensary Lane, London E8 1FT"></iframe>
-      </div>
-    </div>
-
-    <div class="form-card">
-      <div id="formState">
-        <h2>Send an enquiry</h2>
-        <p class="sub">Have a question? Fill in the form and we'll get back to you.</p>
-
-        <div class="error-msg" id="errorMsg"></div>
-
-        <form id="contactForm">
-          <input type="text" name="website" id="honeypot" autocomplete="off" tabindex="-1"
-            style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" aria-hidden="true"/>
-          <div class="field">
-            <label>Name <span class="req">*</span></label>
-            <input type="text" id="cName" required autocomplete="name"/>
-          </div>
-          <div class="field">
-            <label>Email address <span class="req">*</span></label>
-            <input type="email" id="cEmail" required autocomplete="email"/>
-          </div>
-          <div class="field">
-            <label>Phone number</label>
-            <input type="tel" id="cPhone" autocomplete="tel"/>
-          </div>
-          <div class="field">
-            <label>Message <span class="req">*</span></label>
-            <textarea id="cMessage" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn" id="submitBtn">Send enquiry</button>
-        </form>
-      </div>
-
-      <div class="confirm-state" id="confirmState">
-        <div class="icon">&#10003;</div>
-        <h2>Message sent</h2>
-        <p>Thanks, <span id="confirmName"></span> — we've received your enquiry and will get back to
-        you as soon as we can.</p>
-      </div>
-    </div>
-
+  <div class="content-photo">
+    <div class="self-defence-image" role="img" aria-label="Woman practising self-defence with wrapped hands"></div>
   </div>
+
+  <div class="content-body">
+    <p>Build practical self-defence skills in an empowering and accessible course designed to help women feel safer, stronger and more confident. Across six weekly one-hour sessions, you will learn useful techniques while developing awareness, discipline and self-belief in a welcoming environment.</p>
+    <p>The course is run by Sensei Maria Carrera, a former Spanish and World Kickboxing Olympic Champion who won both gold and silver medals for Great Britain and Spain. Passionate about making martial arts empowering and accessible, Maria uses her experience to help people build strength, confidence, discipline and self-belief.</p>
+    <p class="note"><strong>Course details:</strong> This is a six-week course, with one-hour sessions each week, set to start in October. Full dates and times will be announced soon.</p>
+  </div>
+
+  <div class="benefits">
+    <h2>What to expect</h2>
+    <ul>
+      <li>Practical, accessible self-defence techniques</li>
+      <li>Greater confidence and self-belief</li>
+      <li>Improved awareness and coordination</li>
+      <li>Support from an experienced champion instructor</li>
+      <li>A welcoming and empowering environment</li>
+      <li>One-hour sessions over six consecutive weeks</li>
+    </ul>
+  </div>
+
+  <p class="closing">No previous martial arts experience is needed.</p>
 </div>
 
 <footer class="site-footer">
@@ -317,80 +254,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // ⚠️ Same Supabase project/credentials already used elsewhere on this site.
-  const SUPABASE_URL = "https://godayayhzmvrtqedesyj.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvZGF5YXloem12cnRxZWRlc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI4OTI4MjYsImV4cCI6MjA5ODQ2ODgyNn0.-d0oMXygSgRzBj_QIgyQYus0wN7QpItu3fBojrBv9lg";
-
-  const form = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const errorMsg = document.getElementById('errorMsg');
-
-  function uid() {
-    return (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
-  }
-
-  async function callEdgeFunction(name, data) {
-    const res = await fetch(`${SUPABASE_URL}/functions/v1/${name}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${SUPABASE_ANON_KEY}` },
-      body: JSON.stringify(data),
-    });
-    if (!res.ok) throw new Error(`${name} returned ${res.status}`);
-    return res.json();
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Honeypot: real visitors never see or fill this field, so any value
-    // here means it was submitted by an automated bot, not a person.
-    if (document.getElementById('honeypot').value) { return; }
-    errorMsg.classList.remove('show');
-
-    const name    = document.getElementById('cName').value.trim();
-    const email   = document.getElementById('cEmail').value.trim();
-    const phone   = document.getElementById('cPhone').value.trim();
-    const message = document.getElementById('cMessage').value.trim();
-
-    if (!name || !email || !message) {
-      errorMsg.textContent = "Please fill in your name, email address, and message.";
-      errorMsg.classList.add('show');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
-
-    try {
-      const insertRes = await fetch(`${SUPABASE_URL}/rest/v1/contact_enquiries`, {
-        method: "POST",
-        headers: {
-          "apikey": SUPABASE_ANON_KEY,
-          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal",
-        },
-        body: JSON.stringify({ id: uid(), name, email, phone: phone || null, message }),
-      });
-      if (!insertRes.ok) throw new Error("Could not save enquiry");
-
-      await callEdgeFunction("send-email", { type: "contact_enquiry", name, email, phone, message });
-
-      document.getElementById('confirmName').textContent = name;
-      document.getElementById('formState').style.display = 'none';
-      document.getElementById('confirmState').classList.add('show');
-
-    } catch (err) {
-      console.error(err);
-      errorMsg.textContent = "Something went wrong — please try again, or email shams@snbhive.com directly.";
-      errorMsg.classList.add('show');
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send enquiry";
-    }
-  });
-</script>
 
 <script>
   (function() {
