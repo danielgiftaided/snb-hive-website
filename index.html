@@ -37,7 +37,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
-/* Box Fit taster-session banner */
+/* Session booking banner */
 .taster-banner {
   position: relative;
   z-index: 40;
@@ -601,7 +601,7 @@ body {
   visibility: visible;
 }
 
-/* Box Fit popup */
+/* Session booking popup */
 .taster-overlay {
   position: fixed;
   inset: 0;
@@ -673,13 +673,6 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   font-weight: 500;
-}
-
-.taster-modal .dates {
-  margin-top: 8px;
-  color: #4B5D4E;
-  font-size: 14px;
-  font-weight: 600;
 }
 
 .taster-modal p.body-copy {
@@ -863,17 +856,10 @@ body {
 
 <body>
 
-<!-- Box Fit taster-session banner -->
-<aside class="taster-banner" aria-label="Box Fit taster session">
-  <p>
-    <strong>Box Fit Taster Session:</strong>
-    Join us on 01 Oct 2026, 13:00&ndash;14:00.
-  </p>
-
-  <a href="https://app.snbhive.com">
-    Book Box Fit
-    <span aria-hidden="true">&rarr;</span>
-  </a>
+<!-- Session booking banner -->
+<aside class="taster-banner" aria-label="Book SNB Hive sessions">
+  <p><strong>Book your Zumba, BoxFit or Self Defence Sessions Now.</strong></p>
+  <a href="https://app.snbhive.com">Book Now <span aria-hidden="true">&rarr;</span></a>
 </aside>
 
 <!-- Hero -->
@@ -1094,7 +1080,7 @@ body {
   </div>
 </footer>
 
-<!-- Box Fit taster-session popup -->
+<!-- Session booking popup -->
 <div
   class="taster-overlay"
   id="tasterOverlay"
@@ -1111,7 +1097,7 @@ body {
       class="close-btn"
       id="tasterClose"
       type="button"
-      aria-label="Close Box Fit taster session popup"
+      aria-label="Close session booking popup"
     >
       &times;
     </button>
@@ -1120,20 +1106,16 @@ body {
       &#10024;
     </div>
 
-    <div class="taster-tag">You're invited</div>
+    <div class="taster-tag">Bookings are open</div>
 
-    <h3 id="tasterTitle">Box Fit Taster Session</h3>
-
-    <div class="dates">01 Oct 2026, 13:00&ndash;14:00</div>
+    <h3 id="tasterTitle">Book your Zumba, BoxFit or Self Defence Sessions Now.</h3>
 
     <p class="body-copy" id="tasterDescription">
-      Discover Box Fit at SNB Hive. Join our women-only taster session
-      for an energising workout combining boxing technique, fitness,
-      and fun.
+      Choose your session and book your place in the SNB Hive booking app.
     </p>
 
     <a class="btn-primary" href="https://app.snbhive.com">
-      Book your Box Fit taster
+      Book Now
       <span aria-hidden="true">&rarr;</span>
     </a>
 
@@ -1148,7 +1130,7 @@ body {
   var overlay = document.getElementById('tasterOverlay');
   var closeButton = document.getElementById('tasterClose');
   var laterButton = document.getElementById('tasterLater');
-  var storageKey = 'box_fit_taster_2026_10_01_seen';
+  var storageKey = 'snb_hive_sessions_booking_seen';
 
   function closePopup() {
     overlay.classList.remove('show');
